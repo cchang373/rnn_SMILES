@@ -2,11 +2,11 @@ import torch
 from torch import nn
 
 class Model(nn.Module):
-    def __init__(self, dataset):
+    def __init__(self, dataset, lstm_size, embedding_dim, num_layers, dropout):
         super(Model, self).__init__()
-        self.lstm_size = 128
-        self.embedding_dim = 64
-        self.num_layers = 3
+        self.lstm_size = lstm_size
+        self.embedding_dim = embedding_dim
+        self.num_layers = num_layers
 
         n_vocab = len(dataset.uniq_words)
         self.embedding = nn.Embedding(
@@ -17,7 +17,7 @@ class Model(nn.Module):
             input_size=self.embedding_dim,
             hidden_size=self.lstm_size,
             num_layers=self.num_layers,
-            dropout=0.2,
+            dropout=dropout,
         )
         self.fc = nn.Linear(self.lstm_size, n_vocab)
 
