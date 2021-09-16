@@ -22,7 +22,7 @@ class Dataset(torch.utils.data.Dataset):
 
     def load_words(self):
         train_df = open(self.data_path).read()
-        text = train_df.split('\n')[:5000]
+        text = train_df.split('\n')
         return [i for t in text for i in t]
 
     def get_uniq_words(self):
