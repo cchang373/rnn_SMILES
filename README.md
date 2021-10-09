@@ -1,6 +1,6 @@
 # rnn_SMILES
 RNN model with LSTM for SMILES notation generation using PyTorch
-- training dataset: `data.smi`
+- training dataset: `data/data.smi`
 - data process: `dataset.py`
 - model built: `model.py`
 - train: `train.py`
